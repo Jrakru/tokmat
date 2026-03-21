@@ -1,5 +1,9 @@
 # tokmat
 
+[![CI](https://github.com/Jrakru/tokmat/actions/workflows/ci.yml/badge.svg)](https://github.com/Jrakru/tokmat/actions/workflows/ci.yml)
+[![docs.rs](https://docs.rs/tokmat/badge.svg)](https://docs.rs/tokmat)
+[![crates.io](https://img.shields.io/crates/v/tokmat.svg)](https://crates.io/crates/tokmat)
+
 `tokmat` is a standalone Rust crate for metadata-driven tokenization and TEL-based extraction of
 Canadian-style address strings.
 
