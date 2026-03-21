@@ -1,0 +1,107 @@
+[
+  {
+    "input": "123 MAIN ST",
+    "signature": "NUM WORD STREETTYPE",
+    "labels": [
+      "general"
+    ],
+    "cohort_id": "cohort-cf08eca68a76bea0"
+  },
+  {
+    "input": "762 Smyth Rd",
+    "signature": "NUM WORD STREETTYPE",
+    "labels": [
+      "general"
+    ],
+    "cohort_id": "cohort-cf08eca68a76bea0"
+  },
+  {
+    "input": "APT 210 - 159 LOYOLA AVE",
+    "signature": "WORD NUM WORD NUM WORD STREETTYPE",
+    "labels": [
+      "french"
+    ],
+    "cohort_id": "cohort-04e0a4982ffcdd31"
+  },
+  {
+    "input": "10 RUE LAURIER WEST",
+    "signature": "NUM WORD WORD WORD",
+    "labels": [
+      "french"
+    ],
+    "cohort_id": "cohort-a908329d1a7629e6"
+  },
+  {
+    "input": "HIGHWAY 401",
+    "signature": "STREETTYPE NUM",
+    "labels": [
+      "highway"
+    ],
+    "cohort_id": "cohort-a7ab25d1e60bdd05"
+  },
+  {
+    "input": "101 1ST AVE",
+    "signature": "NUM ORDINAL STREETTYPE",
+    "labels": [
+      "french",
+      "numbered_street"
+    ],
+    "cohort_id": "cohort-7813a4f958cb05ef"
+  },
+  {
+    "input": "2166 159 Loyola Ave",
+    "signature": "NUM NUM WORD STREETTYPE",
+    "labels": [
+      "french"
+    ],
+    "cohort_id": "cohort-a90f43f6482a167e"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Etg 630",
+    "signature": "NUM WORD STREETTYPE WORD NUM",
+    "labels": [
+      "general"
+    ],
+    "cohort_id": "cohort-7d68d007ba91e02a"
+  },
+  {
+    "input": "Riviere-du-Loup",
+    "signature": "WORD",
+    "labels": [
+      "general"
+    ],
+    "cohort_id": "cohort-9834700eabcab9c6"
+  },
+  {
+    "input": "K1A 0B1",
+    "signature": "ALPHA_NUM ALPHA_NUM",
+    "labels": [
+      "general"
+    ],
+    "cohort_id": "cohort-013f47ee03cf3dee"
+  },
+  {
+    "input": "123-456 Main St",
+    "signature": "WORD WORD STREETTYPE",
+    "labels": [
+      "general"
+    ],
+    "cohort_id": "cohort-4144927a50cf4c3d"
+  },
+  {
+    "input": "100 MAIN ST N",
+    "signature": "NUM WORD STREETTYPE DIR",
+    "labels": [
+      "general"
+    ],
+    "cohort_id": "cohort-ed8a7b6a939ae15f"
+  },
+  {
+    "input": "5000 HWY 7",
+    "signature": "NUM STREETTYPE NUM",
+    "labels": [
+      "highway"
+    ],
+    "cohort_id": "cohort-63078ad4633e87b5"
+  }
+]

@@ -1,0 +1,36 @@
+# TEL formal grammar for tokmat.
+# Example: <<CIVIC#>> <<STREET@+>> <<TYPE::STREETTYPE>>
+# Example: <<CITY@+$>> <<PROV::PROV>>
+# Example: {{PO BOX}} <<NUM#>>
+# Example: <!PROV!>
+
+pattern         = wsp* , segment , { wsp+ , segment } , wsp* ;
+segment         = capture | non_capture | vanishing | literal ;
+
+capture         = "<<" , identifier , capture_suffix? , ">>" ;
+capture_suffix  = class_spec | modifier_chain , class_spec? ;
+non_capture     = identifier , modifier_chain? ;
+vanishing       = "<!" , identifier , "!>" ;
+literal         = "{{" , literal_body , "}}" ;
+
+class_spec      = "::" , identifier ;
+modifier_chain  = type_modifiers? , class_filter? , quantity? , greedy? ;
+type_modifiers  = { "@" | "#" | "%" | "=" } ;
+class_filter    = include_filter | exclude_filter ;
+include_filter  = "[" , identifier , { "|" , identifier } , "]" ;
+exclude_filter  = "[!" , exclusion , { "|" , exclusion } , "]" ;
+exclusion       = "!"? , "!"? , ( "@" | "#" | identifier ) ;
+quantity        = "+" | "?" ;
+greedy         = "$" ;
+
+identifier      = ident_start , { ident_char } ;
+ident_start     = "_" | letter ;
+ident_char      = ident_start | digit ;
+literal_body    = { literal_char | escaped_open | escaped_close } ;
+escaped_open    = "{{{{" ;
+escaped_close   = "}}}}" ;
+wsp             = " " | "\t" | "\n" | "\r" ;
+
+letter          = "A"…"Z" | "a"…"z" ;
+digit           = "0"…"9" ;
+literal_char    = ? any character except an unescaped "}}" terminator ? ;

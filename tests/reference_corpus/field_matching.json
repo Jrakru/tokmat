@@ -1,0 +1,226 @@
+[
+  {
+    "field": "street_name",
+    "actual": "Main St",
+    "expected": "MAIN ST",
+    "result": {
+      "field": "street_name",
+      "expected": "MAIN ST",
+      "actual": "MAIN ST",
+      "strict_match": true,
+      "matched": true,
+      "similarity": 1.0,
+      "reason": "exact"
+    }
+  },
+  {
+    "field": "street_name",
+    "actual": "Sainte-Thérèse",
+    "expected": "Sainte-Therese",
+    "result": {
+      "field": "street_name",
+      "expected": "SAINTE-THERESE",
+      "actual": "SAINTE-THÉRÈSE",
+      "strict_match": false,
+      "matched": true,
+      "similarity": 0.995,
+      "reason": "accent_or_punctuation_fold"
+    }
+  },
+  {
+    "field": "street_name",
+    "actual": "RUE DE L'EGLISE",
+    "expected": "RUE DE LEGLISE",
+    "result": {
+      "field": "street_name",
+      "expected": "RUE DE LEGLISE",
+      "actual": "RUE DE L'EGLISE",
+      "strict_match": false,
+      "matched": false,
+      "similarity": 0.9655,
+      "reason": "semantic_mismatch"
+    }
+  },
+  {
+    "field": "street_name",
+    "actual": "Wilfrid-Laurier",
+    "expected": "Wilfrid Laurier",
+    "result": {
+      "field": "street_name",
+      "expected": "WILFRID LAURIER",
+      "actual": "WILFRID-LAURIER",
+      "strict_match": false,
+      "matched": true,
+      "similarity": 0.995,
+      "reason": "accent_or_punctuation_fold"
+    }
+  },
+  {
+    "field": "street_name",
+    "actual": "Jean-Baptiste",
+    "expected": "Jean Baptiste",
+    "result": {
+      "field": "street_name",
+      "expected": "JEAN BAPTISTE",
+      "actual": "JEAN-BAPTISTE",
+      "strict_match": false,
+      "matched": true,
+      "similarity": 0.995,
+      "reason": "accent_or_punctuation_fold"
+    }
+  },
+  {
+    "field": "street_name",
+    "actual": "Saint Paul",
+    "expected": "St-Paul",
+    "result": {
+      "field": "street_name",
+      "expected": "ST-PAUL",
+      "actual": "SAINT PAUL",
+      "strict_match": false,
+      "matched": false,
+      "similarity": 0.8235,
+      "reason": "semantic_mismatch"
+    }
+  },
+  {
+    "field": "street_direction",
+    "actual": "N.",
+    "expected": "N",
+    "result": {
+      "field": "street_direction",
+      "expected": "N",
+      "actual": "N.",
+      "strict_match": false,
+      "matched": true,
+      "similarity": 0.995,
+      "reason": "accent_or_punctuation_fold"
+    }
+  },
+  {
+    "field": "street_direction",
+    "actual": "O./W",
+    "expected": "W",
+    "result": {
+      "field": "street_direction",
+      "expected": "W",
+      "actual": "W",
+      "strict_match": true,
+      "matched": true,
+      "similarity": 1.0,
+      "reason": "exact"
+    }
+  },
+  {
+    "field": "civic_number",
+    "actual": "123",
+    "expected": "123",
+    "result": {
+      "field": "civic_number",
+      "expected": "123",
+      "actual": "123",
+      "strict_match": true,
+      "matched": true,
+      "similarity": 1.0,
+      "reason": "exact"
+    }
+  },
+  {
+    "field": "civic_number",
+    "actual": "123A",
+    "expected": "123",
+    "result": {
+      "field": "civic_number",
+      "expected": "123",
+      "actual": "123A",
+      "strict_match": false,
+      "matched": false,
+      "similarity": 0.0,
+      "reason": "strict_field_mismatch"
+    }
+  },
+  {
+    "field": "unit",
+    "actual": "Apt 1",
+    "expected": "Unit 1",
+    "result": {
+      "field": "unit",
+      "expected": "UNIT 1",
+      "actual": "APT 1",
+      "strict_match": false,
+      "matched": false,
+      "similarity": 0.0,
+      "reason": "strict_field_mismatch"
+    }
+  },
+  {
+    "field": "street_name",
+    "actual": "North Main Street",
+    "expected": "Main Street North",
+    "result": {
+      "field": "street_name",
+      "expected": "MAIN STREET NORTH",
+      "actual": "NORTH MAIN STREET",
+      "strict_match": false,
+      "matched": false,
+      "similarity": 1.0,
+      "reason": "semantic_mismatch"
+    }
+  },
+  {
+    "field": "street_name",
+    "actual": "Avenue des Erables",
+    "expected": "Avenue des Érables",
+    "result": {
+      "field": "street_name",
+      "expected": "AVENUE DES ÉRABLES",
+      "actual": "AVENUE DES ERABLES",
+      "strict_match": false,
+      "matched": true,
+      "similarity": 0.995,
+      "reason": "accent_or_punctuation_fold"
+    }
+  },
+  {
+    "field": "street_name",
+    "actual": "Boulevard Saint-Martin Ouest",
+    "expected": "Boul Saint-Martin O",
+    "result": {
+      "field": "street_name",
+      "expected": "BOUL SAINT-MARTIN O",
+      "actual": "BOULEVARD SAINT-MARTIN OUEST",
+      "strict_match": false,
+      "matched": false,
+      "similarity": 0.8085,
+      "reason": "semantic_mismatch"
+    }
+  },
+  {
+    "field": "street_name",
+    "actual": "Highway 401",
+    "expected": "Hwy 401",
+    "result": {
+      "field": "street_name",
+      "expected": "HWY 401",
+      "actual": "HIGHWAY 401",
+      "strict_match": false,
+      "matched": false,
+      "similarity": 0.7778,
+      "reason": "semantic_mismatch"
+    }
+  },
+  {
+    "field": "street_name",
+    "actual": "O'Connor Street",
+    "expected": "OConnor Street",
+    "result": {
+      "field": "street_name",
+      "expected": "OCONNOR STREET",
+      "actual": "O'CONNOR STREET",
+      "strict_match": false,
+      "matched": false,
+      "similarity": 0.9655,
+      "reason": "semantic_mismatch"
+    }
+  }
+]

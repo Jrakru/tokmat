@@ -1,0 +1,1784 @@
+[
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>>",
+    "fields": {
+      "CIVIC": "123",
+      "STREET": "MAIN",
+      "TYPE": "ST"
+    },
+    "complement": ""
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+>> <<TYPE>>",
+    "fields": {
+      "CIVIC": "123",
+      "STREET": "MAIN",
+      "TYPE": "ST"
+    },
+    "complement": ""
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+%>> <<TYPE>>",
+    "fields": {
+      "CIVIC": "123",
+      "STREET": "MAIN",
+      "TYPE": "ST"
+    },
+    "complement": ""
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>> <<DIR?>>",
+    "fields": {
+      "CIVIC": "123",
+      "STREET": "MAIN",
+      "TYPE": "ST"
+    },
+    "complement": ""
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<CIVIC::NUM>> <<STREET@>> <<TYPE::STREETTYPE>>",
+    "fields": {
+      "CIVIC": "123",
+      "STREET": "MAIN",
+      "TYPE": "ST"
+    },
+    "complement": ""
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<PROV::PROV>>",
+    "fields": {},
+    "complement": "123 MAIN ST"
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<MUN@>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "123 MAIN ST"
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<MUN?>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "123 MAIN ST"
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<MUN+>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "123 MAIN ST"
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<MUN@+?#>> <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "123 MAIN ST"
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "ALPHA, <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "123 MAIN ST"
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "ALPHA <<PROV::PROV>>",
+    "fields": {},
+    "complement": "123 MAIN ST"
+  },
+  {
+    "input": "123 MAIN ST",
+    "cleaned": "123 MAIN ST",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<STREET@[!PROV]>> <<TYPE>>",
+    "fields": {},
+    "complement": "123 MAIN ST"
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>>",
+    "fields": {
+      "CIVIC": "762",
+      "STREET": "SMYTH",
+      "TYPE": "RD"
+    },
+    "complement": ""
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+>> <<TYPE>>",
+    "fields": {
+      "CIVIC": "762",
+      "STREET": "SMYTH",
+      "TYPE": "RD"
+    },
+    "complement": ""
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+%>> <<TYPE>>",
+    "fields": {
+      "CIVIC": "762",
+      "STREET": "SMYTH",
+      "TYPE": "RD"
+    },
+    "complement": ""
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>> <<DIR?>>",
+    "fields": {
+      "CIVIC": "762",
+      "STREET": "SMYTH",
+      "TYPE": "RD"
+    },
+    "complement": ""
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<CIVIC::NUM>> <<STREET@>> <<TYPE::STREETTYPE>>",
+    "fields": {
+      "CIVIC": "762",
+      "STREET": "SMYTH",
+      "TYPE": "RD"
+    },
+    "complement": ""
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<PROV::PROV>>",
+    "fields": {},
+    "complement": "762 SMYTH RD"
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<MUN@>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "762 SMYTH RD"
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<MUN?>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "762 SMYTH RD"
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<MUN+>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "762 SMYTH RD"
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<MUN@+?#>> <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "762 SMYTH RD"
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "ALPHA, <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "762 SMYTH RD"
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "ALPHA <<PROV::PROV>>",
+    "fields": {},
+    "complement": "762 SMYTH RD"
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ],
+    "pattern": "<<STREET@[!PROV]>> <<TYPE>>",
+    "fields": {},
+    "complement": "762 SMYTH RD"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+>> <<TYPE>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+%>> <<TYPE>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>> <<DIR?>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<CIVIC::NUM>> <<STREET@>> <<TYPE::STREETTYPE>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<PROV::PROV>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<MUN@>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<MUN?>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<MUN+>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<MUN@+?#>> <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "ALPHA, <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "ALPHA <<PROV::PROV>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "HALIFAX, NOVA SCOTIA",
+    "cleaned": "HALIFAX , NOVA SCOTIA",
+    "tokens": [
+      "HALIFAX",
+      " , ",
+      "NOVA",
+      " ",
+      "SCOTIA"
+    ],
+    "classes": [
+      "ALPHA",
+      " , ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "pattern": "<<STREET@[!PROV]>> <<TYPE>>",
+    "fields": {},
+    "complement": "HALIFAX , NOVA SCOTIA"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+>> <<TYPE>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+%>> <<TYPE>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>> <<DIR?>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<CIVIC::NUM>> <<STREET@>> <<TYPE::STREETTYPE>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<PROV::PROV>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<MUN@>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<MUN?>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<MUN+>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<MUN@+?#>> <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "ALPHA, <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "ALPHA <<PROV::PROV>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "pattern": "<<STREET@[!PROV]>> <<TYPE>>",
+    "fields": {},
+    "complement": "---UNIT210O---'CONNOR"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+>> <<TYPE>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+%>> <<TYPE>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>> <<DIR?>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<CIVIC::NUM>> <<STREET@>> <<TYPE::STREETTYPE>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<PROV::PROV>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<MUN@>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<MUN?>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<MUN+>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<MUN@+?#>> <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "ALPHA, <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "ALPHA <<PROV::PROV>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "10 RUE LAURIER WEST, OTTAWA",
+    "cleaned": "10 RUE LAURIER WEST , OTTAWA",
+    "tokens": [
+      "10",
+      " ",
+      "RUE",
+      " ",
+      "LAURIER",
+      " ",
+      "WEST",
+      " , ",
+      "OTTAWA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION",
+      " , ",
+      "ALPHA"
+    ],
+    "pattern": "<<STREET@[!PROV]>> <<TYPE>>",
+    "fields": {},
+    "complement": "10 RUE LAURIER WEST , OTTAWA"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+>> <<TYPE>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@+%>> <<TYPE>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<CIVIC#>> <<STREET@>> <<TYPE>> <<DIR?>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<CIVIC::NUM>> <<STREET@>> <<TYPE::STREETTYPE>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<PROV::PROV>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<MUN@>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<MUN?>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<MUN+>> <<PROV::PROV>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<MUN@+?#>> <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "ALPHA, <<PROV+?::PROV>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "ALPHA <<PROV::PROV>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "pattern": "<<STREET@[!PROV]>> <<TYPE>>",
+    "fields": {},
+    "complement": "7078 SAINT-LAURENT BLVD ÉTG 630"
+  }
+]

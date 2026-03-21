@@ -1,0 +1,5599 @@
+[
+  {
+    "input": "APT-210 O'CONNOR",
+    "cleaned": "---UNIT210O---'CONNOR",
+    "tokens": [
+      "---UNIT210O---'CONNOR"
+    ],
+    "types": [
+      "ALPHA_NUM_EXTENDED"
+    ],
+    "classes": [
+      "ALPHA_NUM_EXTENDED"
+    ]
+  },
+  {
+    "input": "10 MAIN ST",
+    "cleaned": "10 MAIN ST",
+    "tokens": [
+      "10",
+      " ",
+      "MAIN",
+      " ",
+      "ST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "",
+    "cleaned": "",
+    "tokens": [],
+    "types": [],
+    "classes": []
+  },
+  {
+    "input": "   ",
+    "cleaned": "",
+    "tokens": [],
+    "types": [],
+    "classes": []
+  },
+  {
+    "input": "WORD--ANOTHER...END",
+    "cleaned": "WORD--ANOTHER...END",
+    "tokens": [
+      "WORD--ANOTHER",
+      "...",
+      "END"
+    ],
+    "types": [
+      "ALPHA_EXTENDED",
+      "...",
+      "ALPHA"
+    ],
+    "classes": [
+      "ALPHA_EXTENDED",
+      "...",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "O'CONNOR 'QUOTED' DON'T",
+    "cleaned": "O'CONNOR 'QUOTED' DON'T",
+    "tokens": [
+      "O'CONNOR",
+      " ",
+      "'QUOTED'",
+      " ",
+      "DON'T"
+    ],
+    "types": [
+      "ALPHA_EXTENDED",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "ALPHA_EXTENDED",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "ABC--DEF---GHI",
+    "cleaned": "ABC--DEF---GHI",
+    "tokens": [
+      "ABC--DEF---GHI"
+    ],
+    "types": [
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "123 MAIN ST OTTAWA ON K1A 0B1",
+    "cleaned": "123 MAIN ST OTTAWA ON K1A0B1",
+    "tokens": [
+      "123",
+      " ",
+      "MAIN",
+      " ",
+      "ST",
+      " ",
+      "OTTAWA",
+      " ",
+      "ON",
+      " ",
+      "K1A0B1"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "POSTALCODE"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "PROV",
+      " ",
+      "POSTALCODE"
+    ]
+  },
+  {
+    "input": "7078 Saint-Laurent Blvd Étg 630",
+    "cleaned": "7078 SAINT-LAURENT BLVD ÉTG 630",
+    "tokens": [
+      "7078",
+      " ",
+      "SAINT-LAURENT",
+      " ",
+      "BLVD",
+      " ",
+      "ÉTG",
+      " ",
+      "630"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "ALPHA",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉTG",
+      " ",
+      "NUM"
+    ]
+  },
+  {
+    "input": "Riviere-du-Loup",
+    "cleaned": "RIVIERE-DU-LOUP",
+    "tokens": [
+      "RIVIERE-DU-LOUP"
+    ],
+    "types": [
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "Sainte-Therese",
+    "cleaned": "SAINTE-THERESE",
+    "tokens": [
+      "SAINTE-THERESE"
+    ],
+    "types": [
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "L'Ile-Bizard",
+    "cleaned": "L'ILE-BIZARD",
+    "tokens": [
+      "L'ILE-BIZARD"
+    ],
+    "types": [
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "762 Smyth Rd",
+    "cleaned": "762 SMYTH RD",
+    "tokens": [
+      "762",
+      " ",
+      "SMYTH",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "2166 159 Loyola Ave",
+    "cleaned": "2166 159 LOYOLA AVE",
+    "tokens": [
+      "2166",
+      " ",
+      "159",
+      " ",
+      "LOYOLA",
+      " ",
+      "AVE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "211 Kinship Priv",
+    "cleaned": "211 KINSHIP PRIV",
+    "tokens": [
+      "211",
+      " ",
+      "KINSHIP",
+      " ",
+      "PRIV"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "2750 614 Carousel Cres",
+    "cleaned": "2750 614 CAROUSEL CRES",
+    "tokens": [
+      "2750",
+      " ",
+      "614",
+      " ",
+      "CAROUSEL",
+      " ",
+      "CRES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "689 Fenwick Way",
+    "cleaned": "689 FENWICK WAY",
+    "tokens": [
+      "689",
+      " ",
+      "FENWICK",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "10 Lord Byng Way",
+    "cleaned": "10 LORD BYNG WAY",
+    "tokens": [
+      "10",
+      " ",
+      "LORD",
+      " ",
+      "BYNG",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "27 Dossetter Way",
+    "cleaned": "27 DOSSETTER WAY",
+    "tokens": [
+      "27",
+      " ",
+      "DOSSETTER",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "582 Eastvale Dr",
+    "cleaned": "582 EASTVALE DR",
+    "tokens": [
+      "582",
+      " ",
+      "EASTVALE",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "2156 Colonial Rd",
+    "cleaned": "2156 COLONIAL RD",
+    "tokens": [
+      "2156",
+      " ",
+      "COLONIAL",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "21 Remembrance Cres",
+    "cleaned": "21 REMEMBRANCE CRES",
+    "tokens": [
+      "21",
+      " ",
+      "REMEMBRANCE",
+      " ",
+      "CRES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "352 Brettonwood Ridge",
+    "cleaned": "352 BRETTONWOOD RIDGE",
+    "tokens": [
+      "352",
+      " ",
+      "BRETTONWOOD",
+      " ",
+      "RIDGE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "6237 Hazeldean Rd",
+    "cleaned": "6237 HAZELDEAN RD",
+    "tokens": [
+      "6237",
+      " ",
+      "HAZELDEAN",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "669 Cactus Way",
+    "cleaned": "669 CACTUS WAY",
+    "tokens": [
+      "669",
+      " ",
+      "CACTUS",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "294 Pickford Dr",
+    "cleaned": "294 PICKFORD DR",
+    "tokens": [
+      "294",
+      " ",
+      "PICKFORD",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "1607 Stonecrop Ave",
+    "cleaned": "1607 STONECROP AVE",
+    "tokens": [
+      "1607",
+      " ",
+      "STONECROP",
+      " ",
+      "AVE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "664 Windermere Ave",
+    "cleaned": "664 WINDERMERE AVE",
+    "tokens": [
+      "664",
+      " ",
+      "WINDERMERE",
+      " ",
+      "AVE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "2005 Plainhill Dr",
+    "cleaned": "2005 PLAINHILL DR",
+    "tokens": [
+      "2005",
+      " ",
+      "PLAINHILL",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "4 Feldspar Cres",
+    "cleaned": "4 FELDSPAR CRES",
+    "tokens": [
+      "4",
+      " ",
+      "FELDSPAR",
+      " ",
+      "CRES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "2197 Burnt Lands Rd",
+    "cleaned": "2197 BURNT LANDS RD",
+    "tokens": [
+      "2197",
+      " ",
+      "BURNT",
+      " ",
+      "LANDS",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "58 Stirling Ave",
+    "cleaned": "58 STIRLING AVE",
+    "tokens": [
+      "58",
+      " ",
+      "STIRLING",
+      " ",
+      "AVE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "86 Beausoleil Dr",
+    "cleaned": "86 BEAUSOLEIL DR",
+    "tokens": [
+      "86",
+      " ",
+      "BEAUSOLEIL",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "3654 Trim Rd",
+    "cleaned": "3654 TRIM RD",
+    "tokens": [
+      "3654",
+      " ",
+      "TRIM",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "49 Pinetrail Cres",
+    "cleaned": "49 PINETRAIL CRES",
+    "tokens": [
+      "49",
+      " ",
+      "PINETRAIL",
+      " ",
+      "CRES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "100 Cedar Valley Dr",
+    "cleaned": "100 CEDAR VALLEY DR",
+    "tokens": [
+      "100",
+      " ",
+      "CEDAR",
+      " ",
+      "VALLEY",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "78 Cymbeline Dr",
+    "cleaned": "78 CYMBELINE DR",
+    "tokens": [
+      "78",
+      " ",
+      "CYMBELINE",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "18 Pondhollow Way",
+    "cleaned": "18 PONDHOLLOW WAY",
+    "tokens": [
+      "18",
+      " ",
+      "PONDHOLLOW",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "175 1 Waterbridge Dr",
+    "cleaned": "175 1 WATERBRIDGE DR",
+    "tokens": [
+      "175",
+      " ",
+      "1",
+      " ",
+      "WATERBRIDGE",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "15 Streambank St",
+    "cleaned": "15 STREAMBANK ST",
+    "tokens": [
+      "15",
+      " ",
+      "STREAMBANK",
+      " ",
+      "ST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "692 Cooper St",
+    "cleaned": "692 COOPER ST",
+    "tokens": [
+      "692",
+      " ",
+      "COOPER",
+      " ",
+      "ST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "71 Pooler Ave",
+    "cleaned": "71 POOLER AVE",
+    "tokens": [
+      "71",
+      " ",
+      "POOLER",
+      " ",
+      "AVE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "1803 118 St-Joseph Blvd",
+    "cleaned": "1803 118 ST-JOSEPH BLVD",
+    "tokens": [
+      "1803",
+      " ",
+      "118",
+      " ",
+      "ST-JOSEPH",
+      " ",
+      "BLVD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "9 Airycot Cir",
+    "cleaned": "9 AIRYCOT CIR",
+    "tokens": [
+      "9",
+      " ",
+      "AIRYCOT",
+      " ",
+      "CIR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "222 Queen Mary St",
+    "cleaned": "222 QUEEN MARY ST",
+    "tokens": [
+      "222",
+      " ",
+      "QUEEN",
+      " ",
+      "MARY",
+      " ",
+      "ST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "4470 Elaine Dr",
+    "cleaned": "4470 ELAINE DR",
+    "tokens": [
+      "4470",
+      " ",
+      "ELAINE",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "58 Weeping Willow Lane",
+    "cleaned": "58 WEEPING WILLOW LANE",
+    "tokens": [
+      "58",
+      " ",
+      "WEEPING",
+      " ",
+      "WILLOW",
+      " ",
+      "LANE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "1150 107 Meadowlands Dr E.",
+    "cleaned": "1150 107 MEADOWLANDS DR E.",
+    "tokens": [
+      "1150",
+      " ",
+      "107",
+      " ",
+      "MEADOWLANDS",
+      " ",
+      "DR",
+      " ",
+      "E",
+      "."
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      "."
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE",
+      " ",
+      "STREET_DIRECTION",
+      "."
+    ]
+  },
+  {
+    "input": "745 Coast Cir",
+    "cleaned": "745 COAST CIR",
+    "tokens": [
+      "745",
+      " ",
+      "COAST",
+      " ",
+      "CIR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "6902 Edgar-Brault St",
+    "cleaned": "6902 EDGAR-BRAULT ST",
+    "tokens": [
+      "6902",
+      " ",
+      "EDGAR-BRAULT",
+      " ",
+      "ST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "201 Maynooth Crt",
+    "cleaned": "201 MAYNOOTH CRT",
+    "tokens": [
+      "201",
+      " ",
+      "MAYNOOTH",
+      " ",
+      "CRT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "5586 Flag Station Rd",
+    "cleaned": "5586 FLAG STATION RD",
+    "tokens": [
+      "5586",
+      " ",
+      "FLAG",
+      " ",
+      "STATION",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "106 Hornchurch Lane",
+    "cleaned": "106 HORNCHURCH LANE",
+    "tokens": [
+      "106",
+      " ",
+      "HORNCHURCH",
+      " ",
+      "LANE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "190 3 Beausoleil Dr",
+    "cleaned": "190 3 BEAUSOLEIL DR",
+    "tokens": [
+      "190",
+      " ",
+      "3",
+      " ",
+      "BEAUSOLEIL",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "1771 Old Carp Rd",
+    "cleaned": "1771 OLD CARP RD",
+    "tokens": [
+      "1771",
+      " ",
+      "OLD",
+      " ",
+      "CARP",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "36 Teevens Dr",
+    "cleaned": "36 TEEVENS DR",
+    "tokens": [
+      "36",
+      " ",
+      "TEEVENS",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "6433 Glen Knolls Dr",
+    "cleaned": "6433 GLEN KNOLLS DR",
+    "tokens": [
+      "6433",
+      " ",
+      "GLEN",
+      " ",
+      "KNOLLS",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "4294 Hawthorne Rd",
+    "cleaned": "4294 HAWTHORNE RD",
+    "tokens": [
+      "4294",
+      " ",
+      "HAWTHORNE",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "900 2002 Dynes Rd",
+    "cleaned": "900 2002 DYNES RD",
+    "tokens": [
+      "900",
+      " ",
+      "2002",
+      " ",
+      "DYNES",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "813 Long Point Cir",
+    "cleaned": "813 LONG POINT CIR",
+    "tokens": [
+      "813",
+      " ",
+      "LONG",
+      " ",
+      "POINT",
+      " ",
+      "CIR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "358 Richelieu Ave",
+    "cleaned": "358 RICHELIEU AVE",
+    "tokens": [
+      "358",
+      " ",
+      "RICHELIEU",
+      " ",
+      "AVE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "83 Rallidale St",
+    "cleaned": "83 RALLIDALE ST",
+    "tokens": [
+      "83",
+      " ",
+      "RALLIDALE",
+      " ",
+      "ST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "21 Centrepark Dr",
+    "cleaned": "21 CENTREPARK DR",
+    "tokens": [
+      "21",
+      " ",
+      "CENTREPARK",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "519 Kilspindie Ridge",
+    "cleaned": "519 KILSPINDIE RIDGE",
+    "tokens": [
+      "519",
+      " ",
+      "KILSPINDIE",
+      " ",
+      "RIDGE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "1520 Lough Dr",
+    "cleaned": "1520 LOUGH DR",
+    "tokens": [
+      "1520",
+      " ",
+      "LOUGH",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "1202 Tamworth Lane",
+    "cleaned": "1202 TAMWORTH LANE",
+    "tokens": [
+      "1202",
+      " ",
+      "TAMWORTH",
+      " ",
+      "LANE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "21 Cranberry Crt",
+    "cleaned": "21 CRANBERRY CRT",
+    "tokens": [
+      "21",
+      " ",
+      "CRANBERRY",
+      " ",
+      "CRT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "538 Aberfoyle Cir",
+    "cleaned": "538 ABERFOYLE CIR",
+    "tokens": [
+      "538",
+      " ",
+      "ABERFOYLE",
+      " ",
+      "CIR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "589 Rouncey Rd",
+    "cleaned": "589 ROUNCEY RD",
+    "tokens": [
+      "589",
+      " ",
+      "ROUNCEY",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "6061 North Bluff Dr",
+    "cleaned": "6061 NORTH BLUFF DR",
+    "tokens": [
+      "6061",
+      " ",
+      "NORTH",
+      " ",
+      "BLUFF",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREET_DIRECTION",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "2406 Fifth Line Rd",
+    "cleaned": "2406 FIFTH LINE RD",
+    "tokens": [
+      "2406",
+      " ",
+      "FIFTH",
+      " ",
+      "LINE",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "28 Weybridge Dr",
+    "cleaned": "28 WEYBRIDGE DR",
+    "tokens": [
+      "28",
+      " ",
+      "WEYBRIDGE",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "3557 Farmview Rd",
+    "cleaned": "3557 FARMVIEW RD",
+    "tokens": [
+      "3557",
+      " ",
+      "FARMVIEW",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "12 Calderwood Way",
+    "cleaned": "12 CALDERWOOD WAY",
+    "tokens": [
+      "12",
+      " ",
+      "CALDERWOOD",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "6028 Knights Dr",
+    "cleaned": "6028 KNIGHTS DR",
+    "tokens": [
+      "6028",
+      " ",
+      "KNIGHTS",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "208 Meadowlilly Rd",
+    "cleaned": "208 MEADOWLILLY RD",
+    "tokens": [
+      "208",
+      " ",
+      "MEADOWLILLY",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "60 D Chesterton Dr",
+    "cleaned": "60 D CHESTERTON DR",
+    "tokens": [
+      "60",
+      " ",
+      "D",
+      " ",
+      "CHESTERTON",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "505 Nordmann Fir Crt",
+    "cleaned": "505 NORDMANN FIR CRT",
+    "tokens": [
+      "505",
+      " ",
+      "NORDMANN",
+      " ",
+      "FIR",
+      " ",
+      "CRT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "248 Briston Priv",
+    "cleaned": "248 BRISTON PRIV",
+    "tokens": [
+      "248",
+      " ",
+      "BRISTON",
+      " ",
+      "PRIV"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "31 Nanaimo Dr",
+    "cleaned": "31 NANAIMO DR",
+    "tokens": [
+      "31",
+      " ",
+      "NANAIMO",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "95 Placel Rd",
+    "cleaned": "95 PLACEL RD",
+    "tokens": [
+      "95",
+      " ",
+      "PLACEL",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "2041 405C Arrowsmith Dr",
+    "cleaned": "2041 405C ARROWSMITH DR",
+    "tokens": [
+      "2041",
+      " ",
+      "405C",
+      " ",
+      "ARROWSMITH",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "147 Jersey Tea Cir",
+    "cleaned": "147 JERSEY TEA CIR",
+    "tokens": [
+      "147",
+      " ",
+      "JERSEY",
+      " ",
+      "TEA",
+      " ",
+      "CIR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "2159 East Acres Rd",
+    "cleaned": "2159 EAST ACRES RD",
+    "tokens": [
+      "2159",
+      " ",
+      "EAST",
+      " ",
+      "ACRES",
+      " ",
+      "RD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREET_DIRECTION",
+      " ",
+      "STREETTYPE",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "3 Grengold Way",
+    "cleaned": "3 GRENGOLD WAY",
+    "tokens": [
+      "3",
+      " ",
+      "GRENGOLD",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "51 Torcastle Way",
+    "cleaned": "51 TORCASTLE WAY",
+    "tokens": [
+      "51",
+      " ",
+      "TORCASTLE",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "23 Sweetbay Cir",
+    "cleaned": "23 SWEETBAY CIR",
+    "tokens": [
+      "23",
+      " ",
+      "SWEETBAY",
+      " ",
+      "CIR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "932 Winnington Ave",
+    "cleaned": "932 WINNINGTON AVE",
+    "tokens": [
+      "932",
+      " ",
+      "WINNINGTON",
+      " ",
+      "AVE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "384 Piccadilly Ave N.",
+    "cleaned": "384 PICCADILLY AVE N.",
+    "tokens": [
+      "384",
+      " ",
+      "PICCADILLY",
+      " ",
+      "AVE",
+      " ",
+      "N",
+      "."
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      "."
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE",
+      " ",
+      "STREET_DIRECTION",
+      "."
+    ]
+  },
+  {
+    "input": "1810 St-Laurent Blvd",
+    "cleaned": "1810 ST-LAURENT BLVD",
+    "tokens": [
+      "1810",
+      " ",
+      "ST-LAURENT",
+      " ",
+      "BLVD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "5727 Trudeau Ave",
+    "cleaned": "5727 TRUDEAU AVE",
+    "tokens": [
+      "5727",
+      " ",
+      "TRUDEAU",
+      " ",
+      "AVE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "770 Vinette Cres",
+    "cleaned": "770 VINETTE CRES",
+    "tokens": [
+      "770",
+      " ",
+      "VINETTE",
+      " ",
+      "CRES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "756 Cap-Diamant Way",
+    "cleaned": "756 CAP-DIAMANT WAY",
+    "tokens": [
+      "756",
+      " ",
+      "CAP-DIAMANT",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_EXTENDED",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "419 Silicon Way",
+    "cleaned": "419 SILICON WAY",
+    "tokens": [
+      "419",
+      " ",
+      "SILICON",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "715 Eastvale Crt",
+    "cleaned": "715 EASTVALE CRT",
+    "tokens": [
+      "715",
+      " ",
+      "EASTVALE",
+      " ",
+      "CRT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "1770 Bank St",
+    "cleaned": "1770 BANK ST",
+    "tokens": [
+      "1770",
+      " ",
+      "BANK",
+      " ",
+      "ST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "553 Kochar Dr",
+    "cleaned": "553 KOCHAR DR",
+    "tokens": [
+      "553",
+      " ",
+      "KOCHAR",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "284 Mart Cir",
+    "cleaned": "284 MART CIR",
+    "tokens": [
+      "284",
+      " ",
+      "MART",
+      " ",
+      "CIR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "20 Delaware Ave",
+    "cleaned": "20 DELAWARE AVE",
+    "tokens": [
+      "20",
+      " ",
+      "DELAWARE",
+      " ",
+      "AVE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "305 Sarabella St",
+    "cleaned": "305 SARABELLA ST",
+    "tokens": [
+      "305",
+      " ",
+      "SARABELLA",
+      " ",
+      "ST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "238 Salter Cres",
+    "cleaned": "238 SALTER CRES",
+    "tokens": [
+      "238",
+      " ",
+      "SALTER",
+      " ",
+      "CRES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "2430 Braeburn Pl",
+    "cleaned": "2430 BRAEBURN PL",
+    "tokens": [
+      "2430",
+      " ",
+      "BRAEBURN",
+      " ",
+      "PL"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "50 Bujold Crt",
+    "cleaned": "50 BUJOLD CRT",
+    "tokens": [
+      "50",
+      " ",
+      "BUJOLD",
+      " ",
+      "CRT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "218 Berrigan Dr",
+    "cleaned": "218 BERRIGAN DR",
+    "tokens": [
+      "218",
+      " ",
+      "BERRIGAN",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "8 Woodpark Way",
+    "cleaned": "8 WOODPARK WAY",
+    "tokens": [
+      "8",
+      " ",
+      "WOODPARK",
+      " ",
+      "WAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "33 Heney St",
+    "cleaned": "33 HENEY ST",
+    "tokens": [
+      "33",
+      " ",
+      "HENEY",
+      " ",
+      "ST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "605 Bronson Ave",
+    "cleaned": "605 BRONSON AVE",
+    "tokens": [
+      "605",
+      " ",
+      "BRONSON",
+      " ",
+      "AVE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "54 Heirloom St",
+    "cleaned": "54 HEIRLOOM ST",
+    "tokens": [
+      "54",
+      " ",
+      "HEIRLOOM",
+      " ",
+      "ST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "3522 Paul Anka Dr",
+    "cleaned": "3522 PAUL ANKA DR",
+    "tokens": [
+      "3522",
+      " ",
+      "PAUL",
+      " ",
+      "ANKA",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "2760 305 Carousel Cres",
+    "cleaned": "2760 305 CAROUSEL CRES",
+    "tokens": [
+      "2760",
+      " ",
+      "305",
+      " ",
+      "CAROUSEL",
+      " ",
+      "CRES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "1211 Bayview Dr",
+    "cleaned": "1211 BAYVIEW DR",
+    "tokens": [
+      "1211",
+      " ",
+      "BAYVIEW",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "67 Queensbury Dr",
+    "cleaned": "67 QUEENSBURY DR",
+    "tokens": [
+      "67",
+      " ",
+      "QUEENSBURY",
+      " ",
+      "DR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "590 Rue Jolivet",
+    "cleaned": "590 RUE JOLIVET",
+    "tokens": [
+      "590",
+      " ",
+      "RUE",
+      " ",
+      "JOLIVET"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "3973 3e Rue",
+    "cleaned": "3973 3E RUE",
+    "tokens": [
+      "3973",
+      " ",
+      "3E",
+      " ",
+      "RUE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "4999 Rue Claudel",
+    "cleaned": "4999 RUE CLAUDEL",
+    "tokens": [
+      "4999",
+      " ",
+      "RUE",
+      " ",
+      "CLAUDEL"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "840 Rue Martial",
+    "cleaned": "840 RUE MARTIAL",
+    "tokens": [
+      "840",
+      " ",
+      "RUE",
+      " ",
+      "MARTIAL"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "540 Boulevard des Prairies",
+    "cleaned": "540 BOULEVARD DES PRAIRIES",
+    "tokens": [
+      "540",
+      " ",
+      "BOULEVARD",
+      " ",
+      "DES",
+      " ",
+      "PRAIRIES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2304 Rue Millet",
+    "cleaned": "2304 RUE MILLET",
+    "tokens": [
+      "2304",
+      " ",
+      "RUE",
+      " ",
+      "MILLET"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "986 Montée Masson",
+    "cleaned": "986 MONTÉE MASSON",
+    "tokens": [
+      "986",
+      " ",
+      "MONTÉE",
+      " ",
+      "MASSON"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "MONTÉE",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2710 Avenue de la Volière",
+    "cleaned": "2710 AVENUE DE LA VOLIÈRE",
+    "tokens": [
+      "2710",
+      " ",
+      "AVENUE",
+      " ",
+      "DE",
+      " ",
+      "LA",
+      " ",
+      "VOLIÈRE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "VOLIÈRE"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "VOLIÈRE"
+    ]
+  },
+  {
+    "input": "5047 Rue Bertin",
+    "cleaned": "5047 RUE BERTIN",
+    "tokens": [
+      "5047",
+      " ",
+      "RUE",
+      " ",
+      "BERTIN"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "7960 Boulevard Lévesque Est",
+    "cleaned": "7960 BOULEVARD LÉVESQUE EST",
+    "tokens": [
+      "7960",
+      " ",
+      "BOULEVARD",
+      " ",
+      "LÉVESQUE",
+      " ",
+      "EST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "LÉVESQUE",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "LÉVESQUE",
+      " ",
+      "STREET_DIRECTION"
+    ]
+  },
+  {
+    "input": "873 Rue de Sillery",
+    "cleaned": "873 RUE DE SILLERY",
+    "tokens": [
+      "873",
+      " ",
+      "RUE",
+      " ",
+      "DE",
+      " ",
+      "SILLERY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "1479 Rue Tekakwitha",
+    "cleaned": "1479 RUE TEKAKWITHA",
+    "tokens": [
+      "1479",
+      " ",
+      "RUE",
+      " ",
+      "TEKAKWITHA"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2285 Rue de Monza",
+    "cleaned": "2285 RUE DE MONZA",
+    "tokens": [
+      "2285",
+      " ",
+      "RUE",
+      " ",
+      "DE",
+      " ",
+      "MONZA"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "5854 Rue Pérusse",
+    "cleaned": "5854 RUE PÉRUSSE",
+    "tokens": [
+      "5854",
+      " ",
+      "RUE",
+      " ",
+      "PÉRUSSE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "PÉRUSSE"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "PÉRUSSE"
+    ]
+  },
+  {
+    "input": "1780 Place Martenot",
+    "cleaned": "1780 PLACE MARTENOT",
+    "tokens": [
+      "1780",
+      " ",
+      "PLACE",
+      " ",
+      "MARTENOT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "1695 Rue de Gascogne",
+    "cleaned": "1695 RUE DE GASCOGNE",
+    "tokens": [
+      "1695",
+      " ",
+      "RUE",
+      " ",
+      "DE",
+      " ",
+      "GASCOGNE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "3183 Avenue des Gouverneurs",
+    "cleaned": "3183 AVENUE DES GOUVERNEURS",
+    "tokens": [
+      "3183",
+      " ",
+      "AVENUE",
+      " ",
+      "DES",
+      " ",
+      "GOUVERNEURS"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "1695 Boulevard Mattawa",
+    "cleaned": "1695 BOULEVARD MATTAWA",
+    "tokens": [
+      "1695",
+      " ",
+      "BOULEVARD",
+      " ",
+      "MATTAWA"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "1005 Place des Montagnais",
+    "cleaned": "1005 PLACE DES MONTAGNAIS",
+    "tokens": [
+      "1005",
+      " ",
+      "PLACE",
+      " ",
+      "DES",
+      " ",
+      "MONTAGNAIS"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2548 Rue du Guêpier",
+    "cleaned": "2548 RUE DU GUÊPIER",
+    "tokens": [
+      "2548",
+      " ",
+      "RUE",
+      " ",
+      "DU",
+      " ",
+      "GUÊPIER"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "GUÊPIER"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "GUÊPIER"
+    ]
+  },
+  {
+    "input": "179 Avenue Desmarteau",
+    "cleaned": "179 AVENUE DESMARTEAU",
+    "tokens": [
+      "179",
+      " ",
+      "AVENUE",
+      " ",
+      "DESMARTEAU"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "139 67e Avenue",
+    "cleaned": "139 67E AVENUE",
+    "tokens": [
+      "139",
+      " ",
+      "67E",
+      " ",
+      "AVENUE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "425 Rue Pierre-Villeray",
+    "cleaned": "425 RUE PIERRE-VILLERAY",
+    "tokens": [
+      "425",
+      " ",
+      "RUE",
+      " ",
+      "PIERRE-VILLERAY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "1399 Boulevard Jarry",
+    "cleaned": "1399 BOULEVARD JARRY",
+    "tokens": [
+      "1399",
+      " ",
+      "BOULEVARD",
+      " ",
+      "JARRY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "741 4e Avenue",
+    "cleaned": "741 4E AVENUE",
+    "tokens": [
+      "741",
+      " ",
+      "4E",
+      " ",
+      "AVENUE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "3803 Rue Jérémie",
+    "cleaned": "3803 RUE JÉRÉMIE",
+    "tokens": [
+      "3803",
+      " ",
+      "RUE",
+      " ",
+      "JÉRÉMIE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "JÉRÉMIE"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "JÉRÉMIE"
+    ]
+  },
+  {
+    "input": "97 Rue Lahaie",
+    "cleaned": "97 RUE LAHAIE",
+    "tokens": [
+      "97",
+      " ",
+      "RUE",
+      " ",
+      "LAHAIE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "1006A Boulevard Vanier",
+    "cleaned": "1006A BOULEVARD VANIER",
+    "tokens": [
+      "1006A",
+      " ",
+      "BOULEVARD",
+      " ",
+      "VANIER"
+    ],
+    "types": [
+      "ALPHA_NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "3597 Rue Jean-Paul-Sartre",
+    "cleaned": "3597 RUE JEAN-PAUL-SARTRE",
+    "tokens": [
+      "3597",
+      " ",
+      "RUE",
+      " ",
+      "JEAN-PAUL-SARTRE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "590 Rue Patenaude",
+    "cleaned": "590 RUE PATENAUDE",
+    "tokens": [
+      "590",
+      " ",
+      "RUE",
+      " ",
+      "PATENAUDE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "1332 Rue Vauquelin",
+    "cleaned": "1332 RUE VAUQUELIN",
+    "tokens": [
+      "1332",
+      " ",
+      "RUE",
+      " ",
+      "VAUQUELIN"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2025 Avenue Dumouchel",
+    "cleaned": "2025 AVENUE DUMOUCHEL",
+    "tokens": [
+      "2025",
+      " ",
+      "AVENUE",
+      " ",
+      "DUMOUCHEL"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "3388 Rue Bernadette",
+    "cleaned": "3388 RUE BERNADETTE",
+    "tokens": [
+      "3388",
+      " ",
+      "RUE",
+      " ",
+      "BERNADETTE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "420 Rue Foster",
+    "cleaned": "420 RUE FOSTER",
+    "tokens": [
+      "420",
+      " ",
+      "RUE",
+      " ",
+      "FOSTER"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "4655 14e Rue",
+    "cleaned": "4655 14E RUE",
+    "tokens": [
+      "4655",
+      " ",
+      "14E",
+      " ",
+      "RUE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "4909 Rue Beausoleil",
+    "cleaned": "4909 RUE BEAUSOLEIL",
+    "tokens": [
+      "4909",
+      " ",
+      "RUE",
+      " ",
+      "BEAUSOLEIL"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "946 Rue Guizot",
+    "cleaned": "946 RUE GUIZOT",
+    "tokens": [
+      "946",
+      " ",
+      "RUE",
+      " ",
+      "GUIZOT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "3810 Avenue Jean-Béraud",
+    "cleaned": "3810 AVENUE JEAN-BÉRAUD",
+    "tokens": [
+      "3810",
+      " ",
+      "AVENUE",
+      " ",
+      "JEAN-BÉRAUD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "JEAN-BÉRAUD"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "JEAN-BÉRAUD"
+    ]
+  },
+  {
+    "input": "125 Rue de Bruges",
+    "cleaned": "125 RUE DE BRUGES",
+    "tokens": [
+      "125",
+      " ",
+      "RUE",
+      " ",
+      "DE",
+      " ",
+      "BRUGES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "6570 35e Avenue",
+    "cleaned": "6570 35E AVENUE",
+    "tokens": [
+      "6570",
+      " ",
+      "35E",
+      " ",
+      "AVENUE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "1921 Rue Duquet",
+    "cleaned": "1921 RUE DUQUET",
+    "tokens": [
+      "1921",
+      " ",
+      "RUE",
+      " ",
+      "DUQUET"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2010 Avenue Raymond",
+    "cleaned": "2010 AVENUE RAYMOND",
+    "tokens": [
+      "2010",
+      " ",
+      "AVENUE",
+      " ",
+      "RAYMOND"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "352 Rue P.-É.-Borduas",
+    "cleaned": "352 RUE P.-É.-BORDUAS",
+    "tokens": [
+      "352",
+      " ",
+      "RUE",
+      " ",
+      "P",
+      ".",
+      "-É",
+      ".",
+      "-BORDUAS"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      ".",
+      "-É",
+      ".",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      ".",
+      "-É",
+      ".",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "965 Rue Desmarchais",
+    "cleaned": "965 RUE DESMARCHAIS",
+    "tokens": [
+      "965",
+      " ",
+      "RUE",
+      " ",
+      "DESMARCHAIS"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "1305 Rue de Neuilly",
+    "cleaned": "1305 RUE DE NEUILLY",
+    "tokens": [
+      "1305",
+      " ",
+      "RUE",
+      " ",
+      "DE",
+      " ",
+      "NEUILLY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "4273 Desserte est des Laurentides (A-15)",
+    "cleaned": "4273 DESSERTE EST DES LAURENTIDES (A-15)",
+    "tokens": [
+      "4273",
+      " ",
+      "DESSERTE",
+      " ",
+      "EST",
+      " ",
+      "DES",
+      " ",
+      "LAURENTIDES",
+      " (",
+      "A-15",
+      ")"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " (",
+      "ALPHA_NUM_EXTENDED",
+      ")"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "STREET_DIRECTION",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " (",
+      "ALPHA_NUM_EXTENDED",
+      ")"
+    ]
+  },
+  {
+    "input": "6807 Rue Galarneau",
+    "cleaned": "6807 RUE GALARNEAU",
+    "tokens": [
+      "6807",
+      " ",
+      "RUE",
+      " ",
+      "GALARNEAU"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "331 Rue Éveline",
+    "cleaned": "331 RUE ÉVELINE",
+    "tokens": [
+      "331",
+      " ",
+      "RUE",
+      " ",
+      "ÉVELINE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ÉVELINE"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ÉVELINE"
+    ]
+  },
+  {
+    "input": "5177 Boulevard Lévesque Ouest",
+    "cleaned": "5177 BOULEVARD LÉVESQUE OUEST",
+    "tokens": [
+      "5177",
+      " ",
+      "BOULEVARD",
+      " ",
+      "LÉVESQUE",
+      " ",
+      "OUEST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "LÉVESQUE",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "LÉVESQUE",
+      " ",
+      "STREET_DIRECTION"
+    ]
+  },
+  {
+    "input": "7 1re Avenue",
+    "cleaned": "7 1RE AVENUE",
+    "tokens": [
+      "7",
+      " ",
+      "1RE",
+      " ",
+      "AVENUE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "8464 Rue Iseut",
+    "cleaned": "8464 RUE ISEUT",
+    "tokens": [
+      "8464",
+      " ",
+      "RUE",
+      " ",
+      "ISEUT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2161 Rue Harbour",
+    "cleaned": "2161 RUE HARBOUR",
+    "tokens": [
+      "2161",
+      " ",
+      "RUE",
+      " ",
+      "HARBOUR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "300 Rue des Roseaux",
+    "cleaned": "300 RUE DES ROSEAUX",
+    "tokens": [
+      "300",
+      " ",
+      "RUE",
+      " ",
+      "DES",
+      " ",
+      "ROSEAUX"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "360 Rue de Perpignan",
+    "cleaned": "360 RUE DE PERPIGNAN",
+    "tokens": [
+      "360",
+      " ",
+      "RUE",
+      " ",
+      "DE",
+      " ",
+      "PERPIGNAN"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "435 Rue Joly",
+    "cleaned": "435 RUE JOLY",
+    "tokens": [
+      "435",
+      " ",
+      "RUE",
+      " ",
+      "JOLY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "1063 Avenue J.-J.-Joubert",
+    "cleaned": "1063 AVENUE J.-J.-JOUBERT",
+    "tokens": [
+      "1063",
+      " ",
+      "AVENUE",
+      " ",
+      "J",
+      ".",
+      "-J",
+      ".",
+      "-JOUBERT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      ".",
+      "ALPHA_EXTENDED",
+      ".",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      ".",
+      "ALPHA_EXTENDED",
+      ".",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "280 Rue Pradier",
+    "cleaned": "280 RUE PRADIER",
+    "tokens": [
+      "280",
+      " ",
+      "RUE",
+      " ",
+      "PRADIER"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2029 Rue des Becs-Scies",
+    "cleaned": "2029 RUE DES BECS-SCIES",
+    "tokens": [
+      "2029",
+      " ",
+      "RUE",
+      " ",
+      "DES",
+      " ",
+      "BECS-SCIES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "737 Rue Russell",
+    "cleaned": "737 RUE RUSSELL",
+    "tokens": [
+      "737",
+      " ",
+      "RUE",
+      " ",
+      "RUSSELL"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "3901 Rue Fafard",
+    "cleaned": "3901 RUE FAFARD",
+    "tokens": [
+      "3901",
+      " ",
+      "RUE",
+      " ",
+      "FAFARD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2030 Boulevard Curé-Labelle",
+    "cleaned": "2030 BOULEVARD CURÉ-LABELLE",
+    "tokens": [
+      "2030",
+      " ",
+      "BOULEVARD",
+      " ",
+      "CURÉ-LABELLE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "CURÉ-LABELLE"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "CURÉ-LABELLE"
+    ]
+  },
+  {
+    "input": "8425 Rue Adrien",
+    "cleaned": "8425 RUE ADRIEN",
+    "tokens": [
+      "8425",
+      " ",
+      "RUE",
+      " ",
+      "ADRIEN"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "8145 Rue Fanny",
+    "cleaned": "8145 RUE FANNY",
+    "tokens": [
+      "8145",
+      " ",
+      "RUE",
+      " ",
+      "FANNY"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "600 Rue Damien-Cyr",
+    "cleaned": "600 RUE DAMIEN-CYR",
+    "tokens": [
+      "600",
+      " ",
+      "RUE",
+      " ",
+      "DAMIEN-CYR"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "6365 Rue Rioux",
+    "cleaned": "6365 RUE RIOUX",
+    "tokens": [
+      "6365",
+      " ",
+      "RUE",
+      " ",
+      "RIOUX"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "221 Rue Saint-Hubert",
+    "cleaned": "221 RUE SAINT-HUBERT",
+    "tokens": [
+      "221",
+      " ",
+      "RUE",
+      " ",
+      "SAINT-HUBERT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "750 Chemin du Sablon",
+    "cleaned": "750 CHEMIN DU SABLON",
+    "tokens": [
+      "750",
+      " ",
+      "CHEMIN",
+      " ",
+      "DU",
+      " ",
+      "SABLON"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "25 Rue de l'Anse-Bleue",
+    "cleaned": "25 RUE DE L'ANSE-BLEUE",
+    "tokens": [
+      "25",
+      " ",
+      "RUE",
+      " ",
+      "DE",
+      " ",
+      "L'ANSE-BLEUE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "1800 Rue Mayfield",
+    "cleaned": "1800 RUE MAYFIELD",
+    "tokens": [
+      "1800",
+      " ",
+      "RUE",
+      " ",
+      "MAYFIELD"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "979 Rue des Fuchsias",
+    "cleaned": "979 RUE DES FUCHSIAS",
+    "tokens": [
+      "979",
+      " ",
+      "RUE",
+      " ",
+      "DES",
+      " ",
+      "FUCHSIAS"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "730 Rue de Cortina",
+    "cleaned": "730 RUE DE CORTINA",
+    "tokens": [
+      "730",
+      " ",
+      "RUE",
+      " ",
+      "DE",
+      " ",
+      "CORTINA"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "7115 Rue Galarneau",
+    "cleaned": "7115 RUE GALARNEAU",
+    "tokens": [
+      "7115",
+      " ",
+      "RUE",
+      " ",
+      "GALARNEAU"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "6800 Rue Lamirande",
+    "cleaned": "6800 RUE LAMIRANDE",
+    "tokens": [
+      "6800",
+      " ",
+      "RUE",
+      " ",
+      "LAMIRANDE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2100 Boulevard McNamara",
+    "cleaned": "2100 BOULEVARD MCNAMARA",
+    "tokens": [
+      "2100",
+      " ",
+      "BOULEVARD",
+      " ",
+      "MCNAMARA"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "923A Avenue Châtelaine",
+    "cleaned": "923A AVENUE CHÂTELAINE",
+    "tokens": [
+      "923A",
+      " ",
+      "AVENUE",
+      " ",
+      "CHÂTELAINE"
+    ],
+    "types": [
+      "ALPHA_NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "CHÂTELAINE"
+    ],
+    "classes": [
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "CHÂTELAINE"
+    ]
+  },
+  {
+    "input": "166 Rue Georges-Vanier",
+    "cleaned": "166 RUE GEORGES-VANIER",
+    "tokens": [
+      "166",
+      " ",
+      "RUE",
+      " ",
+      "GEORGES-VANIER"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "8922 Boulevard Lévesque Est",
+    "cleaned": "8922 BOULEVARD LÉVESQUE EST",
+    "tokens": [
+      "8922",
+      " ",
+      "BOULEVARD",
+      " ",
+      "LÉVESQUE",
+      " ",
+      "EST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "LÉVESQUE",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "LÉVESQUE",
+      " ",
+      "STREET_DIRECTION"
+    ]
+  },
+  {
+    "input": "255 Rue Acher",
+    "cleaned": "255 RUE ACHER",
+    "tokens": [
+      "255",
+      " ",
+      "RUE",
+      " ",
+      "ACHER"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "986 Rue Pesant",
+    "cleaned": "986 RUE PESANT",
+    "tokens": [
+      "986",
+      " ",
+      "RUE",
+      " ",
+      "PESANT"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "5841 Rue du Viréo",
+    "cleaned": "5841 RUE DU VIRÉO",
+    "tokens": [
+      "5841",
+      " ",
+      "RUE",
+      " ",
+      "DU",
+      " ",
+      "VIRÉO"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "VIRÉO"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "VIRÉO"
+    ]
+  },
+  {
+    "input": "363 Rue Daphné",
+    "cleaned": "363 RUE DAPHNÉ",
+    "tokens": [
+      "363",
+      " ",
+      "RUE",
+      " ",
+      "DAPHNÉ"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "DAPHNÉ"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "DAPHNÉ"
+    ]
+  },
+  {
+    "input": "344 Rue Charles-Vézina",
+    "cleaned": "344 RUE CHARLES-VÉZINA",
+    "tokens": [
+      "344",
+      " ",
+      "RUE",
+      " ",
+      "CHARLES-VÉZINA"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "CHARLES-VÉZINA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "CHARLES-VÉZINA"
+    ]
+  },
+  {
+    "input": "1465 100e Avenue",
+    "cleaned": "1465 100E AVENUE",
+    "tokens": [
+      "1465",
+      " ",
+      "100E",
+      " ",
+      "AVENUE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "39C Avenue Legrand",
+    "cleaned": "39C AVENUE LEGRAND",
+    "tokens": [
+      "39C",
+      " ",
+      "AVENUE",
+      " ",
+      "LEGRAND"
+    ],
+    "types": [
+      "ALPHA_NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "3936 Boulevard Dagenais Ouest",
+    "cleaned": "3936 BOULEVARD DAGENAIS OUEST",
+    "tokens": [
+      "3936",
+      " ",
+      "BOULEVARD",
+      " ",
+      "DAGENAIS",
+      " ",
+      "OUEST"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "STREET_DIRECTION"
+    ]
+  },
+  {
+    "input": "745 Rue Ginette",
+    "cleaned": "745 RUE GINETTE",
+    "tokens": [
+      "745",
+      " ",
+      "RUE",
+      " ",
+      "GINETTE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "1029 100e Avenue",
+    "cleaned": "1029 100E AVENUE",
+    "tokens": [
+      "1029",
+      " ",
+      "100E",
+      " ",
+      "AVENUE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "ALPHA_NUM",
+      " ",
+      "STREETTYPE"
+    ]
+  },
+  {
+    "input": "540 Rue Hudon",
+    "cleaned": "540 RUE HUDON",
+    "tokens": [
+      "540",
+      " ",
+      "RUE",
+      " ",
+      "HUDON"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "4069 Rue Antoine-Bedwani",
+    "cleaned": "4069 RUE ANTOINE-BEDWANI",
+    "tokens": [
+      "4069",
+      " ",
+      "RUE",
+      " ",
+      "ANTOINE-BEDWANI"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "744 Rue Lahaie",
+    "cleaned": "744 RUE LAHAIE",
+    "tokens": [
+      "744",
+      " ",
+      "RUE",
+      " ",
+      "LAHAIE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "448 Rue Saint-André",
+    "cleaned": "448 RUE SAINT-ANDRÉ",
+    "tokens": [
+      "448",
+      " ",
+      "RUE",
+      " ",
+      "SAINT-ANDRÉ"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "SAINT-ANDRÉ"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "SAINT-ANDRÉ"
+    ]
+  },
+  {
+    "input": "365 Rue Philippe-Laperle",
+    "cleaned": "365 RUE PHILIPPE-LAPERLE",
+    "tokens": [
+      "365",
+      " ",
+      "RUE",
+      " ",
+      "PHILIPPE-LAPERLE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  },
+  {
+    "input": "1638 Rue de Bergerac",
+    "cleaned": "1638 RUE DE BERGERAC",
+    "tokens": [
+      "1638",
+      " ",
+      "RUE",
+      " ",
+      "DE",
+      " ",
+      "BERGERAC"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "8140 Rue Katia",
+    "cleaned": "8140 RUE KATIA",
+    "tokens": [
+      "8140",
+      " ",
+      "RUE",
+      " ",
+      "KATIA"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "2664 Place des Grives",
+    "cleaned": "2664 PLACE DES GRIVES",
+    "tokens": [
+      "2664",
+      " ",
+      "PLACE",
+      " ",
+      "DES",
+      " ",
+      "GRIVES"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "356 Rue Odile",
+    "cleaned": "356 RUE ODILE",
+    "tokens": [
+      "356",
+      " ",
+      "RUE",
+      " ",
+      "ODILE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "430 Avenue des Lacasse",
+    "cleaned": "430 AVENUE DES LACASSE",
+    "tokens": [
+      "430",
+      " ",
+      "AVENUE",
+      " ",
+      "DES",
+      " ",
+      "LACASSE"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "4570 Rue Panneton",
+    "cleaned": "4570 RUE PANNETON",
+    "tokens": [
+      "4570",
+      " ",
+      "RUE",
+      " ",
+      "PANNETON"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "125 Rue Gascon",
+    "cleaned": "125 RUE GASCON",
+    "tokens": [
+      "125",
+      " ",
+      "RUE",
+      " ",
+      "GASCON"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA"
+    ]
+  },
+  {
+    "input": "3015 Boulevard Daniel-Johnson",
+    "cleaned": "3015 BOULEVARD DANIEL-JOHNSON",
+    "tokens": [
+      "3015",
+      " ",
+      "BOULEVARD",
+      " ",
+      "DANIEL-JOHNSON"
+    ],
+    "types": [
+      "NUM",
+      " ",
+      "ALPHA",
+      " ",
+      "ALPHA_EXTENDED"
+    ],
+    "classes": [
+      "NUM",
+      " ",
+      "STREETTYPE",
+      " ",
+      "ALPHA_EXTENDED"
+    ]
+  }
+]
