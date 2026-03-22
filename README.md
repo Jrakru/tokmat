@@ -381,9 +381,15 @@ distribution surface.
 
 Release steps:
 
+1. Update the version in `Cargo.toml` under `[package] version` to `0.1.1`.
+2. Commit the version bump.
+3. Create and push a tag matching the version:
+
 ```bash
-git tag v0.1.1
-git push origin v0.1.1
+VERSION=0.1.1
+git commit -am "Release ${VERSION}"
+git tag "v${VERSION}"
+git push origin "v${VERSION}"
 ```
 
 Before the first release, add a crates.io API token to the repository secrets
