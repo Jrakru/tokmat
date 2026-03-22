@@ -371,6 +371,30 @@ Takeaway:
 - Formal TEL grammar in `grammar/tel.ebnf`
 - Public docs suitable for crates.io and docs.rs
 
+## Release workflow
+
+`tokmat` can be published from GitHub Actions on tag pushes that match `v*`.
+The CI workflow already validates formatting, Clippy, tests, docs, and a
+publish dry-run. The release workflow should remain limited to crates.io
+publication because this repository is the parser kernel, not the Python/Polars
+distribution surface.
+
+Release steps:
+
+1. Update the version in `Cargo.toml` under `[package] version` to `0.1.1`.
+2. Commit the version bump.
+3. Create and push a tag matching the version:
+
+```bash
+VERSION=0.1.1
+git commit -am "Release ${VERSION}"
+git tag "v${VERSION}"
+git push origin "v${VERSION}"
+```
+
+Before the first release, add a crates.io API token to the repository secrets
+as `CARGO_REGISTRY_TOKEN`.
+
 ## Limitations
 
 - The crate is intentionally low-level. It does not try to solve full multi-strategy address
