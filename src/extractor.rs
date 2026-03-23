@@ -542,7 +542,7 @@ impl Extractor {
         let class_regex = compiled_pattern.class_regex(mode)?;
         let class_regex_start = profiling.then(Instant::now);
         let class_captures =
-            run_pcre2_captures(class_regex, &obj_class, "class comparator", class_pattern)?;
+            run_pcre2_captures(class_regex, obj_class, "class comparator", class_pattern)?;
         let class_regex_elapsed = elapsed_since(class_regex_start);
 
         let Some(class_match) = class_captures else {
@@ -930,7 +930,7 @@ fn execute_object_plan_steps(
                 if let Some(name) = capture_name
                     && !is_vanishing
                 {
-                    let span = object_span_for_tokens(&object_offsets, start, end);
+                    let span = object_span_for_tokens(object_offsets, start, end);
                     if let Some((span_start, span_end)) = span {
                         append_field_from_span(&mut fields, name, span_start, span_end, obj_string);
                         capture_spans.push((span_start, span_end));
@@ -961,7 +961,7 @@ fn execute_object_plan_steps(
                 if let Some(name) = capture_name
                     && !is_vanishing
                 {
-                    let span = object_span_for_tokens(&object_offsets, start, end);
+                    let span = object_span_for_tokens(object_offsets, start, end);
                     if let Some((span_start, span_end)) = span {
                         append_field_from_span(&mut fields, name, span_start, span_end, obj_string);
                         capture_spans.push((span_start, span_end));
