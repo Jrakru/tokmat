@@ -1,6 +1,6 @@
 [package]
 name = "tokmat"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 rust-version = "1.85"
 authors = ["Jean Philippe Wan"]
@@ -8,7 +8,7 @@ description = "Standalone high-performance Canadian address parsing engine core"
 license = "MIT"
 readme = "README.md"
 documentation = "https://docs.rs/tokmat"
-repository = "https://github.com/Jrakru/wanParserStrategyMaker"
+repository = "https://github.com/Jrakru/tokmat"
 keywords = ["address", "parser", "tokenizer", "regex", "canada"]
 categories = ["parser-implementations", "text-processing"]
 

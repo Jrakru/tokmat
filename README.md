@@ -381,13 +381,14 @@ distribution surface.
 
 Release steps:
 
-1. Update the version in `Cargo.toml` under `[package] version` to `0.1.1`.
+1. Update the version in `Cargo.toml` under `[package] version` to `0.2.0`.
 2. Commit the version bump.
 3. Create and push a tag matching the version:
 
 ```bash
-VERSION=0.1.1
-git commit -am "Release ${VERSION}"
+VERSION=0.2.0
+git add -A
+git commit -m "Release ${VERSION}"
 git tag "v${VERSION}"
 git push origin "v${VERSION}"
 ```

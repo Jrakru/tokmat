@@ -15,7 +15,8 @@ use pcre2::bytes::{
 use std::collections::HashMap;
 use std::hash::Hash;
 use std::num::NonZeroUsize;
-use std::sync::{Arc, Mutex};
+use std::sync::{Arc, Mutex, OnceLock};
+use std::time::{Duration, Instant};
 
 const DEFAULT_WORD_REGEX: &str = r"[\w\-']+";
 const WORD_BOUNDARY_REGEX: &str = r"(?:(?=[\w\-'])(?<![\w\-'])|(?<=[\w\-'])(?![\w\-']))";
@@ -82,6 +83,14 @@ pub struct ExtractorStats {
     pub direct_execution_hits: usize,
     pub fallback_execution_count: usize,
     pub fallback_regex_realizations: usize,
+    pub profiled_rows: usize,
+    pub profile_total_ns: u128,
+    pub profile_class_join_ns: u128,
+    pub profile_class_regex_ns: u128,
+    pub profile_offset_work_ns: u128,
+    pub profile_object_join_ns: u128,
+    pub profile_direct_execution_ns: u128,
+    pub profile_fallback_regex_ns: u128,
 }
 
 pub struct Extractor {
@@ -141,6 +150,14 @@ struct ExecutionCounters {
     direct_execution_hits: usize,
     fallback_execution_count: usize,
     fallback_regex_realizations: usize,
+    profiled_rows: usize,
+    profile_total_ns: Duration,
+    profile_class_join_ns: Duration,
+    profile_class_regex_ns: Duration,
+    profile_offset_work_ns: Duration,
+    profile_object_join_ns: Duration,
+    profile_direct_execution_ns: Duration,
+    profile_fallback_regex_ns: Duration,
 }
 
 #[derive(Debug)]
@@ -345,6 +362,14 @@ impl Extractor {
             direct_execution_hits: execution_counters.direct_execution_hits,
             fallback_execution_count: execution_counters.fallback_execution_count,
             fallback_regex_realizations: execution_counters.fallback_regex_realizations,
+            profiled_rows: execution_counters.profiled_rows,
+            profile_total_ns: execution_counters.profile_total_ns.as_nanos(),
+            profile_class_join_ns: execution_counters.profile_class_join_ns.as_nanos(),
+            profile_class_regex_ns: execution_counters.profile_class_regex_ns.as_nanos(),
+            profile_offset_work_ns: execution_counters.profile_offset_work_ns.as_nanos(),
+            profile_object_join_ns: execution_counters.profile_object_join_ns.as_nanos(),
+            profile_direct_execution_ns: execution_counters.profile_direct_execution_ns.as_nanos(),
+            profile_fallback_regex_ns: execution_counters.profile_fallback_regex_ns.as_nanos(),
         })
     }
 
@@ -391,6 +416,56 @@ impl Extractor {
         )
     }
 
+    /// Parse using borrowed class values while compiling or reusing a cached TEL pattern.
+    ///
+    /// This avoids forcing callers to materialize owned `String` values for every
+    /// class token when they already have a compact or borrowed representation.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`ParseError::InvalidPattern`] when the generated regex cannot be compiled.
+    pub fn parse_tokens_with_classes<S: AsRef<str>>(
+        &self,
+        uid: &str,
+        obj_string_list: &[String],
+        obj_class_list: &[S],
+        pattern: &str,
+        mode: MatchMode,
+    ) -> Result<ParseOutput, ParseError> {
+        let compiled_pattern = self.get_or_compile_pattern(pattern)?;
+        self.parse_compiled_tokens_with_classes(
+            uid,
+            obj_string_list,
+            obj_class_list,
+            &compiled_pattern,
+            mode,
+        )
+    }
+
+    /// Parse using pre-tokenized borrowed token and class lists while compiling or reusing a
+    /// cached TEL pattern.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`ParseError::InvalidPattern`] when the generated regex cannot be compiled.
+    pub fn parse_tokens_with_views<T: AsRef<str>, S: AsRef<str>>(
+        &self,
+        uid: &str,
+        obj_string_list: &[T],
+        obj_class_list: &[S],
+        pattern: &str,
+        mode: MatchMode,
+    ) -> Result<ParseOutput, ParseError> {
+        let compiled_pattern = self.get_or_compile_pattern(pattern)?;
+        self.parse_compiled_tokens_with_views(
+            uid,
+            obj_string_list,
+            obj_class_list,
+            &compiled_pattern,
+            mode,
+        )
+    }
+
     /// Parse using a precompiled TEL pattern.
     ///
     /// # Errors
@@ -405,67 +480,121 @@ impl Extractor {
         compiled_pattern: &CompiledPattern,
         mode: MatchMode,
     ) -> Result<ParseOutput, ParseError> {
-        let full_obj_string = obj_string_list.join("");
-        let mut obj_string = full_obj_string.clone();
-        let leading_space_removed = starts_with_space_pair(obj_string_list, obj_class_list);
-        if leading_space_removed {
-            obj_string = obj_string.trim_start().to_string();
-        }
-        let trailing_space_removed = ends_with_space_pair(obj_string_list, obj_class_list);
-        if trailing_space_removed {
-            obj_string = obj_string.trim_end().to_string();
-        }
+        self.parse_compiled_tokens_with_views(
+            uid,
+            obj_string_list,
+            obj_class_list,
+            compiled_pattern,
+            mode,
+        )
+    }
 
-        let mut obj_class = obj_class_list.join("");
-        if !obj_class_list.is_empty() && obj_class_list[0].chars().all(char::is_whitespace) {
-            obj_class = obj_class.trim_start().to_string();
-        }
-        if !obj_class_list.is_empty()
-            && obj_class_list[obj_class_list.len() - 1]
-                .chars()
-                .all(char::is_whitespace)
-        {
-            obj_class = obj_class.trim_end().to_string();
-        }
+    /// Parse using a precompiled TEL pattern and borrowed class values.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`ParseError::InvalidPattern`] when the generated regex cannot be compiled.
+    #[allow(clippy::too_many_lines)]
+    pub fn parse_compiled_tokens_with_classes<S: AsRef<str>>(
+        &self,
+        uid: &str,
+        obj_string_list: &[String],
+        obj_class_list: &[S],
+        compiled_pattern: &CompiledPattern,
+        mode: MatchMode,
+    ) -> Result<ParseOutput, ParseError> {
+        self.parse_compiled_tokens_with_views(
+            uid,
+            obj_string_list,
+            obj_class_list,
+            compiled_pattern,
+            mode,
+        )
+    }
+
+    /// Parse using a precompiled TEL pattern and borrowed token/class values.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`ParseError::InvalidPattern`] when the generated regex cannot be compiled.
+    #[allow(clippy::too_many_lines)]
+    pub fn parse_compiled_tokens_with_views<T: AsRef<str>, S: AsRef<str>>(
+        &self,
+        uid: &str,
+        obj_string_list: &[T],
+        obj_class_list: &[S],
+        compiled_pattern: &CompiledPattern,
+        mode: MatchMode,
+    ) -> Result<ParseOutput, ParseError> {
+        let profiling = profile_enabled();
+        let total_start = profiling.then(Instant::now);
+        let leading_space_removed = starts_with_space_pair(obj_string_list, obj_class_list);
+        let trailing_space_removed = ends_with_space_pair(obj_string_list, obj_class_list);
+        let class_join_start = profiling.then(Instant::now);
+        let raw_class_string = join_tokens(obj_class_list);
+        let obj_class = trim_with_space_flags(
+            raw_class_string.as_str(),
+            leading_space_removed,
+            trailing_space_removed,
+        );
+        let class_join_elapsed = elapsed_since(class_join_start);
 
         let class_pattern = compiled_pattern.class_pattern(mode);
         let class_regex = compiled_pattern.class_regex(mode)?;
+        let class_regex_start = profiling.then(Instant::now);
         let class_captures =
-            run_pcre2_captures(class_regex, &obj_class, "class comparator", class_pattern)?;
+            run_pcre2_captures(class_regex, obj_class, "class comparator", class_pattern)?;
+        let class_regex_elapsed = elapsed_since(class_regex_start);
 
         let Some(class_match) = class_captures else {
+            self.record_profile_timing(ProfileTiming {
+                rows: 1,
+                total: elapsed_since(total_start),
+                class_join: class_join_elapsed,
+                class_regex: class_regex_elapsed,
+                ..ProfileTiming::default()
+            })?;
             return Ok(ParseOutput {
                 uid: uid.to_string(),
                 fields: HashMap::new(),
-                complement: fallback_complement(
-                    &full_obj_string,
-                    &obj_string,
-                    leading_space_removed,
-                    trailing_space_removed,
-                ),
+                complement: join_tokens(obj_string_list),
             });
         };
 
         let raw_groups = capture_groups(&class_match);
         if raw_groups.iter().any(|group| group.as_deref() == Some(" ")) {
+            self.record_profile_timing(ProfileTiming {
+                rows: 1,
+                total: elapsed_since(total_start),
+                class_join: class_join_elapsed,
+                class_regex: class_regex_elapsed,
+                ..ProfileTiming::default()
+            })?;
             return Ok(ParseOutput {
                 uid: uid.to_string(),
                 fields: HashMap::new(),
-                complement: fallback_complement(
-                    &full_obj_string,
-                    &obj_string,
-                    leading_space_removed,
-                    trailing_space_removed,
-                ),
+                complement: join_tokens(obj_string_list),
             });
         }
+
+        let offset_work_start = profiling.then(Instant::now);
+        let class_offsets = token_offsets_ref(obj_class_list);
+        let object_offsets = token_offsets_ref(obj_string_list);
+        let left_trim = if leading_space_removed {
+            obj_class_list
+                .first()
+                .map_or(0, |token| token.as_ref().len())
+        } else {
+            0
+        };
 
         let (aligned_obj_start, _aligned_obj_end) = if mode == MatchMode::Any {
             align_any_match(
                 &class_match,
+                &class_offsets,
+                &object_offsets,
                 obj_class_list,
-                obj_string_list,
-                leading_space_removed,
+                left_trim,
             )
         } else {
             (None, None)
@@ -491,23 +620,37 @@ impl Extractor {
             )
         })?;
         let Some(match_range) = match_token_index_range(
-            obj_class_list,
-            leading_space_removed,
+            &class_offsets,
+            left_trim,
             full_match.start(),
             full_match.end(),
         ) else {
+            self.record_profile_timing(ProfileTiming {
+                rows: 1,
+                total: elapsed_since(total_start),
+                class_join: class_join_elapsed,
+                class_regex: class_regex_elapsed,
+                offset_work: elapsed_since(offset_work_start),
+                ..ProfileTiming::default()
+            })?;
             return Ok(ParseOutput {
                 uid: uid.to_string(),
                 fields: HashMap::new(),
-                complement: fallback_complement(
-                    &full_obj_string,
-                    &obj_string,
-                    leading_space_removed,
-                    trailing_space_removed,
-                ),
+                complement: join_tokens(obj_string_list),
             });
         };
+        let offset_work_elapsed = elapsed_since(offset_work_start);
 
+        let object_join_start = profiling.then(Instant::now);
+        let full_obj_string = join_tokens(obj_string_list);
+        let obj_string = trim_with_space_flags(
+            full_obj_string.as_str(),
+            leading_space_removed,
+            trailing_space_removed,
+        );
+        let object_join_elapsed = elapsed_since(object_join_start);
+
+        let direct_execution_start = profiling.then(Instant::now);
         let direct_execution = if leading_space_removed {
             None
         } else {
@@ -516,16 +659,19 @@ impl Extractor {
                 &object_plan,
                 obj_string_list,
                 obj_class_list,
-                &obj_string,
+                obj_string,
+                &object_offsets,
                 match_range,
             )
         };
+        let direct_execution_elapsed = elapsed_since(direct_execution_start);
 
+        let mut fallback_regex_elapsed = Duration::ZERO;
         let (fields, mut complement) = if let Some(execution) = direct_execution {
             self.record_direct_execution_hit()?;
             (
                 execution.fields,
-                get_complement_of_spans(&obj_string, &execution.capture_spans)
+                get_complement_of_spans(obj_string, &execution.capture_spans)
                     .trim_start()
                     .to_string(),
             )
@@ -533,23 +679,30 @@ impl Extractor {
             self.record_fallback_execution()?;
             let fallback_regex =
                 self.get_or_compile_fallback_regex(object_plan.fallback.pattern.as_ref())?;
+            let fallback_regex_start = profiling.then(Instant::now);
             let obj_captures = run_pcre2_captures(
                 fallback_regex.as_ref(),
-                &obj_string,
+                obj_string,
                 "object comparator",
                 object_plan.fallback.pattern.as_ref(),
             )?;
+            fallback_regex_elapsed = elapsed_since(fallback_regex_start);
 
             let Some(obj_match) = obj_captures else {
+                self.record_profile_timing(ProfileTiming {
+                    rows: 1,
+                    total: elapsed_since(total_start),
+                    class_join: class_join_elapsed,
+                    class_regex: class_regex_elapsed,
+                    offset_work: offset_work_elapsed,
+                    object_join: object_join_elapsed,
+                    direct_execution: direct_execution_elapsed,
+                    fallback_regex: fallback_regex_elapsed,
+                })?;
                 return Ok(ParseOutput {
                     uid: uid.to_string(),
                     fields: HashMap::new(),
-                    complement: fallback_complement(
-                        &full_obj_string,
-                        &obj_string,
-                        leading_space_removed,
-                        trailing_space_removed,
-                    ),
+                    complement: full_obj_string,
                 });
             };
 
@@ -581,13 +734,24 @@ impl Extractor {
 
             (
                 fields,
-                get_complement_of_captured_groups(&obj_string, &obj_match),
+                get_complement_of_captured_groups(obj_string, &obj_match),
             )
         };
 
         if leading_space_removed {
             complement.insert(0, ' ');
         }
+
+        self.record_profile_timing(ProfileTiming {
+            rows: 1,
+            total: elapsed_since(total_start),
+            class_join: class_join_elapsed,
+            class_regex: class_regex_elapsed,
+            offset_work: offset_work_elapsed,
+            object_join: object_join_elapsed,
+            direct_execution: direct_execution_elapsed,
+            fallback_regex: fallback_regex_elapsed,
+        })?;
 
         Ok(ParseOutput {
             uid: uid.to_string(),
@@ -690,13 +854,20 @@ fn create_object_plan_steps(
 
 fn execute_object_plan(
     plan: &CachedObjectPlan,
-    obj_string_list: &[String],
-    obj_class_list: &[String],
+    obj_string_list: &[impl AsRef<str>],
+    obj_class_list: &[impl AsRef<str>],
     obj_string: &str,
+    object_offsets: &[(usize, usize)],
     match_range: (usize, usize),
 ) -> Option<DirectExecutionResult> {
-    let execution =
-        execute_object_plan_steps(&plan.steps, obj_string_list, obj_class_list, match_range)?;
+    let execution = execute_object_plan_steps(
+        &plan.steps,
+        obj_string_list,
+        obj_class_list,
+        obj_string,
+        object_offsets,
+        match_range,
+    )?;
 
     if !plan.allow_direct {
         return None;
@@ -716,11 +887,12 @@ fn execute_object_plan(
 
 fn execute_object_plan_steps(
     steps: &[ObjectPlanStep],
-    obj_string_list: &[String],
-    obj_class_list: &[String],
+    obj_string_list: &[impl AsRef<str>],
+    obj_class_list: &[impl AsRef<str>],
+    obj_string: &str,
+    object_offsets: &[(usize, usize)],
     match_range: (usize, usize),
 ) -> Option<DirectExecutionResult> {
-    let object_offsets = token_offsets(obj_string_list);
     let mut current = match_range.0;
     let mut fields = HashMap::new();
     let mut capture_spans = Vec::new();
@@ -733,7 +905,11 @@ fn execute_object_plan_steps(
                 if end > match_range.1 {
                     return None;
                 }
-                if obj_string_list[start..end] != *tokens {
+                if !obj_string_list[start..end]
+                    .iter()
+                    .map(AsRef::as_ref)
+                    .eq(tokens.iter().map(String::as_str))
+                {
                     return None;
                 }
                 current = end;
@@ -755,9 +931,9 @@ fn execute_object_plan_steps(
                 if let Some(name) = capture_name
                     && !is_vanishing
                 {
-                    let span = object_span_for_tokens(&object_offsets, start, end);
+                    let span = object_span_for_tokens(object_offsets, start, end);
                     if let Some((span_start, span_end)) = span {
-                        append_field_from_tokens(&mut fields, name, obj_string_list, start, end);
+                        append_field_from_span(&mut fields, name, span_start, span_end, obj_string);
                         capture_spans.push((span_start, span_end));
                     }
                 }
@@ -775,7 +951,10 @@ fn execute_object_plan_steps(
                 let mut end = start + 1;
                 if *consume_trailing_space {
                     while end < match_range.1
-                        && obj_class_list[end].chars().all(char::is_whitespace)
+                        && obj_class_list[end]
+                            .as_ref()
+                            .chars()
+                            .all(char::is_whitespace)
                     {
                         end += 1;
                     }
@@ -783,9 +962,9 @@ fn execute_object_plan_steps(
                 if let Some(name) = capture_name
                     && !is_vanishing
                 {
-                    let span = object_span_for_tokens(&object_offsets, start, end);
+                    let span = object_span_for_tokens(object_offsets, start, end);
                     if let Some((span_start, span_end)) = span {
-                        append_field_from_tokens(&mut fields, name, obj_string_list, start, end);
+                        append_field_from_span(&mut fields, name, span_start, span_end, obj_string);
                         capture_spans.push((span_start, span_end));
                     }
                 }
@@ -800,22 +979,22 @@ fn execute_object_plan_steps(
     })
 }
 
-fn skip_whitespace_tokens(tokens: &[String], mut index: usize, end: usize) -> usize {
-    while index < end && tokens[index].chars().all(char::is_whitespace) {
+fn skip_whitespace_tokens<S: AsRef<str>>(tokens: &[S], mut index: usize, end: usize) -> usize {
+    while index < end && tokens[index].as_ref().chars().all(char::is_whitespace) {
         index += 1;
     }
     index
 }
 
-fn consume_class_text(
-    obj_class_list: &[String],
+fn consume_class_text<S: AsRef<str>>(
+    obj_class_list: &[S],
     start: usize,
     end: usize,
     class_text: &str,
 ) -> Option<usize> {
     let mut accumulated = String::new();
     for (index, token) in obj_class_list.iter().enumerate().take(end).skip(start) {
-        accumulated.push_str(token);
+        accumulated.push_str(token.as_ref());
         if accumulated == class_text {
             return Some(index + 1);
         }
@@ -837,14 +1016,17 @@ fn object_span_for_tokens(
     Some((object_offsets.get(start)?.0, object_offsets.get(end - 1)?.1))
 }
 
-fn append_field_from_tokens(
+fn append_field_from_span(
     fields: &mut HashMap<String, String>,
     name: &str,
-    obj_string_list: &[String],
     start: usize,
     end: usize,
+    obj_string: &str,
 ) {
-    let value = obj_string_list[start..end].join("").trim().to_string();
+    let Some(value) = obj_string.get(start..end).map(str::trim) else {
+        return;
+    };
+    let value = value.to_string();
     if value.is_empty() {
         return;
     }
@@ -858,20 +1040,13 @@ fn append_field_from_tokens(
 }
 
 fn match_token_index_range(
-    obj_class_list: &[String],
-    leading_space_removed: bool,
+    class_offsets: &[(usize, usize)],
+    left_trim: usize,
     match_start: usize,
     match_end: usize,
 ) -> Option<(usize, usize)> {
-    let class_raw = obj_class_list.join("");
-    let left_trim = if leading_space_removed {
-        class_raw.len() - class_raw.trim_start().len()
-    } else {
-        0
-    };
     let raw_start = left_trim + match_start;
     let raw_end = left_trim + match_end;
-    let class_offsets = token_offsets(obj_class_list);
 
     let mut start_index = None;
     let mut end_index = None;
@@ -1057,37 +1232,62 @@ impl Extractor {
             .fallback_execution_count += 1;
         Ok(())
     }
+
+    fn record_profile_timing(&self, timing: ProfileTiming) -> Result<(), ParseError> {
+        if !profile_enabled() {
+            return Ok(());
+        }
+        let mut counters = self.execution_counters.lock().map_err(|error| {
+            ParseError::InvalidPattern(format!("execution counters poisoned: {error}"))
+        })?;
+        counters.profiled_rows += timing.rows;
+        counters.profile_total_ns += timing.total;
+        counters.profile_class_join_ns += timing.class_join;
+        counters.profile_class_regex_ns += timing.class_regex;
+        counters.profile_offset_work_ns += timing.offset_work;
+        counters.profile_object_join_ns += timing.object_join;
+        counters.profile_direct_execution_ns += timing.direct_execution;
+        counters.profile_fallback_regex_ns += timing.fallback_regex;
+        Ok(())
+    }
 }
 
-fn starts_with_space_pair(obj_string_list: &[String], obj_class_list: &[String]) -> bool {
+#[derive(Debug, Clone, Copy, Default)]
+struct ProfileTiming {
+    rows: usize,
+    total: Duration,
+    class_join: Duration,
+    class_regex: Duration,
+    offset_work: Duration,
+    object_join: Duration,
+    direct_execution: Duration,
+    fallback_regex: Duration,
+}
+
+fn starts_with_space_pair(
+    obj_string_list: &[impl AsRef<str>],
+    obj_class_list: &[impl AsRef<str>],
+) -> bool {
     !obj_string_list.is_empty()
         && !obj_class_list.is_empty()
-        && obj_string_list[0].chars().all(char::is_whitespace)
-        && obj_class_list[0].chars().all(char::is_whitespace)
+        && obj_string_list[0].as_ref().chars().all(char::is_whitespace)
+        && obj_class_list[0].as_ref().chars().all(char::is_whitespace)
 }
 
-fn ends_with_space_pair(obj_string_list: &[String], obj_class_list: &[String]) -> bool {
+fn ends_with_space_pair(
+    obj_string_list: &[impl AsRef<str>],
+    obj_class_list: &[impl AsRef<str>],
+) -> bool {
     !obj_string_list.is_empty()
         && !obj_class_list.is_empty()
         && obj_string_list[obj_string_list.len() - 1]
+            .as_ref()
             .chars()
             .all(char::is_whitespace)
         && obj_class_list[obj_class_list.len() - 1]
+            .as_ref()
             .chars()
             .all(char::is_whitespace)
-}
-
-fn fallback_complement(
-    full_obj_string: &str,
-    obj_string: &str,
-    leading_space_removed: bool,
-    trailing_space_removed: bool,
-) -> String {
-    if leading_space_removed || trailing_space_removed {
-        full_obj_string.to_string()
-    } else {
-        obj_string.to_string()
-    }
 }
 
 fn capture_groups(captures: &Pcre2Captures) -> Vec<Option<String>> {
@@ -1172,24 +1372,17 @@ fn filter_class_groups(
 
 fn align_any_match(
     class_match: &Pcre2Captures,
-    obj_class_list: &[String],
-    obj_string_list: &[String],
-    leading_space_removed: bool,
+    class_offsets: &[(usize, usize)],
+    obj_offsets: &[(usize, usize)],
+    obj_class_list: &[impl AsRef<str>],
+    left_trim: usize,
 ) -> (Option<usize>, Option<usize>) {
     let Some(full_match) = class_match.get(0) else {
         return (None, None);
     };
 
-    let class_raw = obj_class_list.join("");
-    let left_trim = if leading_space_removed {
-        class_raw.len() - class_raw.trim_start().len()
-    } else {
-        0
-    };
     let class_start_raw = left_trim + full_match.start();
     let class_end_raw = left_trim + full_match.end();
-
-    let class_offsets = token_offsets(obj_class_list);
     let mut start_token_index = None;
     let mut end_token_index = None;
 
@@ -1209,11 +1402,11 @@ fn align_any_match(
     };
 
     while start_token_index < obj_class_list.len()
-        && obj_class_list[start_token_index].trim().is_empty()
+        && obj_class_list[start_token_index].as_ref().trim().is_empty()
     {
         start_token_index += 1;
     }
-    while end_token_index > 0 && obj_class_list[end_token_index].trim().is_empty() {
+    while end_token_index > 0 && obj_class_list[end_token_index].as_ref().trim().is_empty() {
         end_token_index -= 1;
     }
 
@@ -1221,22 +1414,60 @@ fn align_any_match(
         return (None, None);
     }
 
-    let obj_offsets = token_offsets(obj_string_list);
     (
         obj_offsets.get(start_token_index).map(|(start, _)| *start),
         obj_offsets.get(end_token_index).map(|(_, end)| *end),
     )
 }
 
-fn token_offsets(tokens: &[String]) -> Vec<(usize, usize)> {
+fn trim_with_space_flags(
+    text: &str,
+    leading_space_removed: bool,
+    trailing_space_removed: bool,
+) -> &str {
+    let text = if leading_space_removed {
+        text.trim_start()
+    } else {
+        text
+    };
+    if trailing_space_removed {
+        text.trim_end()
+    } else {
+        text
+    }
+}
+
+fn token_offsets_ref<S: AsRef<str>>(tokens: &[S]) -> Vec<(usize, usize)> {
     let mut offset = 0_usize;
     let mut result = Vec::with_capacity(tokens.len());
     for token in tokens {
         let start = offset;
-        offset += token.len();
+        offset += token.as_ref().len();
         result.push((start, offset));
     }
     result
+}
+
+fn join_tokens<T: AsRef<str>>(tokens: &[T]) -> String {
+    let total_len = tokens.iter().map(|token| token.as_ref().len()).sum();
+    let mut out = String::with_capacity(total_len);
+    for token in tokens {
+        out.push_str(token.as_ref());
+    }
+    out
+}
+
+fn profile_enabled() -> bool {
+    static ENABLED: OnceLock<bool> = OnceLock::new();
+    *ENABLED.get_or_init(|| {
+        std::env::var("TOKMAT_PROFILE")
+            .map(|value| value != "0" && !value.is_empty())
+            .unwrap_or(false)
+    })
+}
+
+fn elapsed_since(start: Option<Instant>) -> Duration {
+    start.map_or(Duration::ZERO, |start| start.elapsed())
 }
 
 fn strip_word_boundaries(pattern: &str) -> &str {
@@ -1821,5 +2052,63 @@ mod tests {
             Some("MAIN")
         );
         assert_eq!(output.complement, "ST EXTRA");
+    }
+
+    #[test]
+    fn test_borrowed_parse_entry_points_match_owned_parse_tokens() {
+        let extractor = mock_extractor();
+        let tokens = vec![
+            " ".to_string(),
+            "123".to_string(),
+            " ".to_string(),
+            "MAIN".to_string(),
+            " ".to_string(),
+            "ST".to_string(),
+            " ".to_string(),
+        ];
+        let classes = vec![
+            " ".to_string(),
+            "NUM".to_string(),
+            " ".to_string(),
+            "ALPHA".to_string(),
+            " ".to_string(),
+            "STREETTYPE".to_string(),
+            " ".to_string(),
+        ];
+        let class_views: Vec<&str> = classes.iter().map(String::as_str).collect();
+        let token_views: Vec<&str> = tokens.iter().map(String::as_str).collect();
+        let pattern = "<<CIVIC#>> <<STREET@>> <<TYPE::STREETTYPE>>";
+
+        let owned = extractor
+            .parse_tokens(
+                " 123 MAIN ST ",
+                &tokens,
+                &classes,
+                pattern,
+                MatchMode::Whole,
+            )
+            .expect("owned parse should succeed");
+        let borrowed_classes = extractor
+            .parse_tokens_with_classes(
+                " 123 MAIN ST ",
+                &tokens,
+                &class_views,
+                pattern,
+                MatchMode::Whole,
+            )
+            .expect("borrowed class parse should succeed");
+        let borrowed_views = extractor
+            .parse_tokens_with_views(
+                " 123 MAIN ST ",
+                &token_views,
+                &class_views,
+                pattern,
+                MatchMode::Whole,
+            )
+            .expect("borrowed token/class parse should succeed");
+
+        assert_eq!(borrowed_classes, owned);
+        assert_eq!(borrowed_views, owned);
+        assert_eq!(owned.complement, " ");
     }
 }
