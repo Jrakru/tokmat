@@ -416,7 +416,7 @@ impl Extractor {
         )
     }
 
-    /// Parse using a precompiled TEL pattern and borrowed class values.
+    /// Parse using borrowed class values while compiling or reusing a cached TEL pattern.
     ///
     /// This avoids forcing callers to materialize owned `String` values for every
     /// class token when they already have a compact or borrowed representation.
@@ -442,7 +442,8 @@ impl Extractor {
         )
     }
 
-    /// Parse using pre-tokenized borrowed token and class lists.
+    /// Parse using pre-tokenized borrowed token and class lists while compiling or reusing a
+    /// cached TEL pattern.
     ///
     /// # Errors
     ///
@@ -2051,5 +2052,63 @@ mod tests {
             Some("MAIN")
         );
         assert_eq!(output.complement, "ST EXTRA");
+    }
+
+    #[test]
+    fn test_borrowed_parse_entry_points_match_owned_parse_tokens() {
+        let extractor = mock_extractor();
+        let tokens = vec![
+            " ".to_string(),
+            "123".to_string(),
+            " ".to_string(),
+            "MAIN".to_string(),
+            " ".to_string(),
+            "ST".to_string(),
+            " ".to_string(),
+        ];
+        let classes = vec![
+            " ".to_string(),
+            "NUM".to_string(),
+            " ".to_string(),
+            "ALPHA".to_string(),
+            " ".to_string(),
+            "STREETTYPE".to_string(),
+            " ".to_string(),
+        ];
+        let class_views: Vec<&str> = classes.iter().map(String::as_str).collect();
+        let token_views: Vec<&str> = tokens.iter().map(String::as_str).collect();
+        let pattern = "<<CIVIC#>> <<STREET@>> <<TYPE::STREETTYPE>>";
+
+        let owned = extractor
+            .parse_tokens(
+                " 123 MAIN ST ",
+                &tokens,
+                &classes,
+                pattern,
+                MatchMode::Whole,
+            )
+            .expect("owned parse should succeed");
+        let borrowed_classes = extractor
+            .parse_tokens_with_classes(
+                " 123 MAIN ST ",
+                &tokens,
+                &class_views,
+                pattern,
+                MatchMode::Whole,
+            )
+            .expect("borrowed class parse should succeed");
+        let borrowed_views = extractor
+            .parse_tokens_with_views(
+                " 123 MAIN ST ",
+                &token_views,
+                &class_views,
+                pattern,
+                MatchMode::Whole,
+            )
+            .expect("borrowed token/class parse should succeed");
+
+        assert_eq!(borrowed_classes, owned);
+        assert_eq!(borrowed_views, owned);
+        assert_eq!(owned.complement, " ");
     }
 }

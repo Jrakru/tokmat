@@ -387,7 +387,8 @@ Release steps:
 
 ```bash
 VERSION=0.2.0
-git commit -am "Release ${VERSION}"
+git add -A
+git commit -m "Release ${VERSION}"
 git tag "v${VERSION}"
 git push origin "v${VERSION}"
 ```
